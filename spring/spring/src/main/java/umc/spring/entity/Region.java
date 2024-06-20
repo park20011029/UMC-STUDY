@@ -22,4 +22,6 @@ public class Region {
     //----------------------------------------
     @OneToMany(mappedBy = "regionId", fetch = FetchType.LAZY)
     private List<Store> stores;
+
+
 }

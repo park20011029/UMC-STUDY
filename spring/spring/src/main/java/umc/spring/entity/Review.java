@@ -1,6 +1,7 @@
 package umc.spring.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.DynamicUpdate;
@@ -25,4 +26,16 @@ public class Review {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User userId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "store_id")
+    private Store storeId;
+
+    @Builder
+    public Review(String reviewContent, Integer reviewStar, User userId, Store storeId) {
+        this.reviewContent = reviewContent;
+        this.reviewStar = reviewStar;
+        this.userId = userId;
+        this.storeId = storeId;
+    }
 }
