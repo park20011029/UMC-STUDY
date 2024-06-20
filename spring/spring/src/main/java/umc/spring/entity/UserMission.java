@@ -1,6 +1,7 @@
 package umc.spring.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.DynamicUpdate;
@@ -28,4 +29,11 @@ public class UserMission {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "mission_id")
     private Mission missionId;
+
+    @Builder
+    public UserMission(MissionStatus missionStatus, User userId, Mission missionId) {
+        this.missionStatus = missionStatus;
+        this.userId = userId;
+        this.missionId = missionId;
+    }
 }
