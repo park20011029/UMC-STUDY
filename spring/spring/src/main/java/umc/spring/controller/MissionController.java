@@ -19,7 +19,7 @@ public class MissionController {
     public ResponseDto<Map<String, Object>> userMission(
             @RequestParam(name = "page", defaultValue = "1") Integer page,
             @RequestParam(name = "size", defaultValue = "10") Integer size,
-            @RequestBody UserIdDto userIdDto
+             @RequestBody UserIdDto userIdDto
             ) {
         return new ResponseDto<>(missionService.userMissionselect(page, size, userIdDto));
     }
